@@ -11,6 +11,8 @@ public class LevelGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Awake(){
         sharedInstance = this;
+        AddNewBlock();
+        AddNewBlock();
 
     }
     void Start()

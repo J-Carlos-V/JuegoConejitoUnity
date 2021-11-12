@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     public static GameManager sharedInstance;
     public GameStatus currentGameStatus = GameStatus.menu;
     private Vector3 startPosition;
+
+    public Canvas MenuCanvas;
+
+    public Canvas GameCanvas;
+
+    public Canvas GameOverCanvas;
     // Start is called before the first frame update
     void Awake(){
         startPosition = this.transform.position;
@@ -21,7 +27,11 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        MenuCanvas.enabled=true;
+        GameCanvas.enabled=false;
+        GameOverCanvas.enabled=false;
         currentGameStatus = GameStatus.menu;
+        
     }
 
     // Update is called once per frame
@@ -49,13 +59,19 @@ public class GameManager : MonoBehaviour
     void ChangeGameState(GameStatus newGameState){
         if (newGameState == GameStatus.menu)
         {
-            
+            MenuCanvas.enabled=true;
+            GameCanvas.enabled=false;
+            GameOverCanvas.enabled=false;
         }
         else if(newGameState==GameStatus.inTheGame)
         {
-            
+            MenuCanvas.enabled=false;
+            GameCanvas.enabled=true;
+            GameOverCanvas.enabled=false;
         }else if (newGameState==GameStatus.GameOver){
-
+            MenuCanvas.enabled=false;
+            GameCanvas.enabled=false;
+            GameOverCanvas.enabled=true;
         }
         currentGameStatus = newGameState;
     }

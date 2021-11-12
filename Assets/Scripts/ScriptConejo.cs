@@ -25,7 +25,8 @@ public class ScriptConejo : MonoBehaviour
     }
 
     public void StartGame(){
-        
+
+        //this.transform.position=startPosition;
         animator.SetBool("isAlive", true);
         rigidBody.velocity = new Vector2(0,0);
     }

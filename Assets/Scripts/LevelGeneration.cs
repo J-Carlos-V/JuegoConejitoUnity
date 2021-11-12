@@ -41,4 +41,9 @@ public class LevelGeneration : MonoBehaviour
         block.transform.position = blockPosition;
         currentLevelBlock.Add(block);
     }
+    public void DeleteBlock(){
+        LevelBlock block = currentLevelBlock[0];
+        currentLevelBlock.Remove(block);
+        Destroy(block.gameObject);
+    }
 }
